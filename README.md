@@ -95,10 +95,13 @@ redis-cli MONITOR | ts '%Y-%m-%d %H:%M:%.S' > monitor.log
 ```
 ```
 #Execute each of the following commands on the new client 
-#Client running concurrency tests 
-redis- benchmark -h [Twemproxy_IP] -p 22121 -t get -n 10000 -c 50 
-redis-benchmark -h [Twemproxy_IP] -p 22121 -t get -n 50000 -c 50 
-redis-benchmark -h [Twemproxy_IP] -p 22121 -t get -n 50000 -c 50 redis-benchmark -h [Twemproxy_IP] -p 22121 -t get -n 50000 -c 50 IP] -p 22121 -t get -n 100000 -c 50 
+#Client running concurrency tests
+redis-benchmark -h [Twemproxy_IP] -p 22121 -t get -n 10000 -c 50
+redis-benchmark -h [Twemproxy_IP] -p 22121 -t get -n 10000 -c 500
+redis-benchmark -h [Twemproxy_IP] -p 22121 -t get -n 150000 -c 50 
+redis-benchmark -h [Twemproxy_IP] -p 22121 -t get -n 150000 -c 500
+redis-benchmark -h [Twemproxy_IP] -p 22121 -t get -n 300000 -c 50 
+redis-benchmark -h [Twemproxy_IP] -p 22121 -t get -n 300000 -c 500
 ```
 ```
 #After execution is complete, stop the Redis nodes from writing commands and analyze them using the python script 
